@@ -33,6 +33,6 @@ ApplicationRecord.transaction do
         password: 'password'
     )
 
-
-
+    puts 'Done seeding db'
+    
 end
