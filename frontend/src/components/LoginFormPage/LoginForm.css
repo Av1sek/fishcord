@@ -1,0 +1,132 @@
+body {
+    background-color: #5765F2;
+    background-image: url('../../assets/loginBackground.png');
+}
+
+.authDiv {
+    background-color: #36393F;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 780px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin: 300px 0 0 -370px;
+    border-radius: 5px;
+}
+
+.welcomeDiv {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 120px;
+    align-items: center;
+    height: 60px;
+    width: 250px;
+    margin-bottom: 0px;
+}
+
+.welcomeTxt {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.fillerTxt {
+    color: #B6B8BB;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 825px) {
+    .authDiv{
+        background-color: #36393F;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 480px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        margin: 300px 0 0 -240px;
+    }
+}
+
+.authFormDiv {
+    color: #B9BBBE;
+    display: flex;
+    margin-top: 20px;
+    width: 450px;
+    height: 250px;
+    margin-left: 30px;
+}
+
+.authFormDiv > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.authForm > label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.authForm > label > input {
+    background-color: #202225;
+    color: white;
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: -5px;
+    border: none;
+}
+
+.txtBox:focus {
+    outline-color: #202225;
+    outline-width: 0;
+}
+
+.submitBtn {
+    background-color: #5865F2;
+    color: white;
+    width: 409px;
+    font-size: 16px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    outline-width: 0;
+    border: none;
+}
+
+.submitBtn:hover {
+    background-color: rgb(77, 88, 214);   
+    cursor: pointer;
+}
+
+.submitBtn:active {
+    background-color: rgb(65, 74, 178);   
+}
+
+.registerDiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    width: 250px;
+    margin-top: -20px;
+    color: #B9BBBE;
+    font-size: 14px;
+}
+
+.registerBtn {
+    color: #00AFF4; 
+}
+
+.registerBtn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -1,0 +1,145 @@
+body {
+    background-color: #5765F2;
+    background-image: url('../../assets/loginBackground.png');
+}
+
+.authDiv {
+    background-color: #36393F;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 480px;
+    height: 570px;
+    top: 50%;
+    left: 50%;
+    margin: 240px 0 0 -240px;
+    border-radius: 5px;
+}
+
+.welcomeDiv {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    height: 60px;
+}
+
+.welcomeTxt {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.authFormDiv {
+    color: #B9BBBE;
+    display: flex;
+    margin-top: -20px;
+    width: 450px;
+    height: 250px;
+    margin-left: 30px;
+}
+
+.authFormDiv > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.authForm > label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.authForm > label > input {
+    background-color: #202225;
+    color: white;
+    width: 400px;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: -5px;
+    border: none;
+}
+
+.txtBox:focus {
+    outline-color: #202225;
+    outline-width: 0;
+}
+
+.submitBtn {
+    background-color: #5865F2;
+    color: white;
+    width: 405px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 3px;
+    outline-width: 0;
+    border: none;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 0px;
+}
+
+.submitBtn:hover {
+    background-color: rgb(77, 88, 214);   
+    cursor: pointer;
+}
+
+.submitBtn:active {
+    background-color: rgb(65, 74, 178);   
+}
+
+.demoUser {
+    background-color: #5865F2;
+    color: white;
+    width: 405px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 3px;
+    outline-width: 0;
+    border: none;
+    text-align: center;
+    line-height: 40px;
+}
+
+.demoUser:hover {
+    background-color: rgb(77, 88, 214);   
+    cursor: pointer;
+}
+
+.demoUser:active {
+    background-color: rgb(65, 74, 178);   
+}
+
+.signUpDiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 250px;
+    margin-top: 160px;
+    color: #B9BBBE;
+    font-size: 15px;
+}
+
+.signUpBtn {
+    color: #00AFF4; 
+}
+
+.signUpBtn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.registerTxtDiv {
+    margin-left: 30px;
+    width: 400px;
+    margin-top: 10px;
+    color: #B9BBBE;
+    font-size: 12px;
+}
+
+.blueTxt {
+    color: #00AFF4;
+}
