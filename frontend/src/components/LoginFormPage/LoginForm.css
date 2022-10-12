@@ -1,6 +1,12 @@
-body {
+.bgImg {
     background-color: #5765F2;
-    background-image: url('../../assets/loginBackground.png');
+    background-image: url('../../assets/authPage/loginBackground.png');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .authDiv {
@@ -10,10 +16,11 @@ body {
     position: relative;
     width: 780px;
     height: 400px;
-    top: 50%;
+    top: 5%;
     left: 50%;
-    margin: 300px 0 0 -370px;
+    margin: 200px 0 0 -370px;
     border-radius: 5px;
+    font-family: "ABC Ginto Normal","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .welcomeDiv {
@@ -29,13 +36,14 @@ body {
 
 .welcomeTxt {
     color: white;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
+    padding-bottom: 5px;
 }
 
 .fillerTxt {
     color: #B6B8BB;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 825px) {
@@ -48,7 +56,25 @@ body {
         height: 400px;
         top: 50%;
         left: 50%;
-        margin: 300px 0 0 -240px;
+        margin: 200px 0 0 -240px;
+        font-family: "ABC Ginto Normal","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    .demoUserDiv {
+        margin-left: 200px !important;
+        margin-top: -80px !important;
+        width: 20px;
+    }
+    .registerDiv{
+        margin-top: 20px !important;
+    }
+    .signInDemoUser {
+        width: 235px !important;
+    }
+    .demoUserPfp {
+        display: none !important; 
+    }
+    .demoSignInText {
+        display: none !important;
     }
 }
 
@@ -94,11 +120,11 @@ body {
 .submitBtn {
     background-color: #5865F2;
     color: white;
-    width: 409px;
+    width: 403px;
     font-size: 16px;
     height: 40px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     outline-width: 0;
     border: none;
 }
@@ -119,7 +145,7 @@ body {
     width: 250px;
     margin-top: -20px;
     color: #B9BBBE;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .registerBtn {
@@ -129,4 +155,52 @@ body {
 .registerBtn:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.demoUserDiv {
+    background-image: url();
+    margin-left: 450px;
+    margin-top: -325px;
+    width: 300px;
+    height: 280px;
+}
+
+.signInDemoUser {
+    background-color: #5865F2;
+    color: white;
+    width: 300px;
+    font-size: 16px;
+    border-radius: 3px;
+    outline-width: 0;
+    border: none;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 63px;
+}
+
+.signInDemoUser:hover {
+    background-color: rgb(77, 88, 214);   
+    cursor: pointer;
+}
+
+.signInDemoUser:active {
+    background-color: rgb(65, 74, 178);   
+}
+
+.demoUserPfp {
+    background-image: url('../../assets/authPage/demoPfp.png');
+    background-size: contain;
+    width: 150px;
+    height: 150px;
+    align-self: center;
+    margin-left: 75px;
+    margin-top: 30px;
+}
+
+.demoSignInText {
+    color: #B9BBBE;
+    display: flex;
+    width: 200px;
+    margin-top: -80px;
+    margin-left: 50px;
 }

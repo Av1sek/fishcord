@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </Route>
       <Route path="/signup">
         <SignupFormPage />
+      </Route>
+      <Route path="/">
+        <HomePage /> 
       </Route>
     </Switch>
   );

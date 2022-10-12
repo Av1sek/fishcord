@@ -1,0 +1,58 @@
+body {
+    background-image: none;
+    background-color: azure;
+    font-family: "Ginto Normal","Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.splashBgImg {
+    background-image: url('../../assets/splashPage/discordSplashImg.png');
+    height: 600px;
+    width: 1920px;
+    background-size: contain;
+    margin-left: -9px;
+    margin-top: -9px;
+    position: absolute;
+}
+
+.splashLogo {
+    background-image: url('../../assets/splashPage/discordLogo.png');
+    height: 30px;
+    width: 50px;
+    background-size: contain;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.navBar {
+    width: 100%;
+    height: 50px;
+}
+
+.homeLink {
+    margin-left: 70px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -20px;
+}
+
+.githubLink {
+    margin-left: 670px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -20px;
+}
+
+.linkedinLink {
+    margin-left: 130px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -20px;
+}

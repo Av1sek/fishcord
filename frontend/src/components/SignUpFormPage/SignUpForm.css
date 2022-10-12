@@ -1,35 +1,45 @@
-body {
+.bgImg {
     background-color: #5765F2;
-    background-image: url('../../assets/loginBackground.png');
+    background-image: url('../../assets/authPage/loginBackground.png');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
-.authDiv {
+.signUpAuthDiv {
     background-color: #36393F;
     display: flex;
     flex-direction: column;
     position: relative;
     width: 480px;
     height: 570px;
-    top: 50%;
+    top: 5%;
     left: 50%;
-    margin: 240px 0 0 -240px;
+    margin: 160px 0 0 -240px;
     border-radius: 5px;
+    font-family: "ABC Ginto Normal","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.welcomeDiv {
+.signUpwelcomeDiv {
     display: flex;
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-left: 120px;
     align-items: center;
     height: 60px;
+    width: 250px;
+    margin-bottom: 0px;
 }
 
-.welcomeTxt {
+.signUpwelcomeTxt {
     color: white;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
 }
 
-.authFormDiv {
+.signUpauthFormDiv {
     color: #B9BBBE;
     display: flex;
     margin-top: -20px;
@@ -38,21 +48,21 @@ body {
     margin-left: 30px;
 }
 
-.authFormDiv > form {
+.signUpauthFormDiv > form {
     display: flex;
     flex-direction: column;
 }
 
-.authForm > label {
+.signUpauthForm > label {
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;
     margin-left: 5px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 
-.authForm > label > input {
+.signUpauthForm > label > input {
     background-color: #202225;
     color: white;
     width: 400px;
@@ -63,12 +73,12 @@ body {
     border: none;
 }
 
-.txtBox:focus {
+.signUptxtBox:focus {
     outline-color: #202225;
     outline-width: 0;
 }
 
-.submitBtn {
+.signUpsubmitBtn {
     background-color: #5865F2;
     color: white;
     width: 405px;
@@ -82,16 +92,16 @@ body {
     margin-bottom: 0px;
 }
 
-.submitBtn:hover {
+.signUpsubmitBtn:hover {
     background-color: rgb(77, 88, 214);   
     cursor: pointer;
 }
 
-.submitBtn:active {
+.signUpsubmitBtn:active {
     background-color: rgb(65, 74, 178);   
 }
 
-.demoUser {
+.signUpdemoUser {
     background-color: #5865F2;
     color: white;
     width: 405px;
@@ -104,12 +114,12 @@ body {
     line-height: 40px;
 }
 
-.demoUser:hover {
+.signUpdemoUser:hover {
     background-color: rgb(77, 88, 214);   
     cursor: pointer;
 }
 
-.demoUser:active {
+.signUpdemoUser:active {
     background-color: rgb(65, 74, 178);   
 }
 
@@ -132,7 +142,7 @@ body {
     cursor: pointer;
 }
 
-.registerTxtDiv {
+.signUpregisterTxtDiv {
     margin-left: 30px;
     width: 400px;
     margin-top: 10px;
@@ -140,6 +150,6 @@ body {
     font-size: 12px;
 }
 
-.blueTxt {
+.signUpblueTxt {
     color: #00AFF4;
 }
