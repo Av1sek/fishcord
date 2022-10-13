@@ -179,3 +179,36 @@ body {
     font-family: Helvetica Neue;  
     font-weight: 300;
 }
+
+.nav-open-fishcord {
+    background-color: white;
+    position: absolute;
+    width: 15%;
+    min-width: 200px;
+    height: 50px;
+    margin-left: 43%;
+    margin-top: -150px;
+    display: flex;
+    justify-content: center;
+    border-radius: 28px;
+    z-index: 3;
+}
+
+.nav-open-fishcord-text {
+    width: 150px;
+    height: 34px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #23272A;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 0;
+}
+
+.nav-open-fishcord:hover {
+    box-shadow: 2px 10px 10px #3843b6;
+}
+
+.nav-open-fishcord-text:hover {
+    color: rgb(74, 74, 232);
+}
