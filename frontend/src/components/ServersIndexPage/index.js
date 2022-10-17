@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchServers} from '../../store/servers';
 import { Redirect } from 'react-router-dom';
+import Modal from '../../Modal/Modal';
 import './Servers.css'
 
-function ServerIndex() {
+function ServerIndex({onClose}) {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
     const servers = useSelector(state => state.servers)
     const serversList = Object.values(servers).map(server => <div className="server"><h3>{server.id}</h3></div>)
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         dispatch(fetchServers(sessionUser.id))
@@ -24,7 +26,10 @@ function ServerIndex() {
             <div className="dm-border"></div>
             {serversList}
             <div className="server">
-                <h3 className="add-server">+</h3>
+                <h3 className="add-server" onClick={() => {setModalOpen(true); console.log('clicked');}}>+</h3>
+                <Modal modalOpen={modalOpen} modalClose={() => setModalOpen(false)}>
+                    <button>X</button>
+                </Modal>
             </div>
             <div className="server-show"></div>
             <div className="channel-show"></div>

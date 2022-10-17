@@ -116,9 +116,9 @@ body {
 .splash-text > h1 {
     text-align: center;
     line-height: 95%;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 66px;
-    transform:scale(1.2,.7)
+    transform:scale(1,1)
 }
 
 .splash-text > p {
