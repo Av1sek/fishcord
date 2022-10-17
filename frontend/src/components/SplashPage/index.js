@@ -2,9 +2,9 @@ import React from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import './HomePage.css';
+import './SplashPage.css';
 
-function HomePage() {
+function SplashPage() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const btnTxt = sessionUser ? "Logout" : "Login"
@@ -66,4 +66,4 @@ function HomePage() {
     )
 }
 
-export default HomePage;
+export default SplashPage;

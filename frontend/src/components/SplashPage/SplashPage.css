@@ -1,6 +1,6 @@
 body {
     background-image: none;
-    background-color: azure;
+    background-color: #FFFFFF;
     font-family: Helvetica Neue;
 }
 
@@ -22,7 +22,10 @@ body {
     background-image: url('../../assets/splashPage/discordLogo.png');
     width: 50px;
     height: 34px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-width: 50px;
+    min-height: 34px;
     margin-top: 8px;
 }
 

@@ -31,6 +31,8 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
+// await csrfFetch(`/api/servers?userId=${1}`)
+
 export const signup = (user) => async (dispatch) => {
     const {username, email, password} = user;
     const response = await csrfFetch('/api/users', {

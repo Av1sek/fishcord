@@ -1,0 +1,89 @@
+.server-index-container {
+    background-color: #202225;
+    width: 72px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.server > h3 {
+    margin-left: 11px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    color: #DBDCDD;
+    background-color: #36393F;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+}
+
+.server:hover {
+    border-left: 1px solid white;
+}
+
+.server > h3:hover {
+    transition: border-radius .2s;
+    border-radius: 17px;
+    background-color: #5865F2;
+    color: white;
+    cursor: pointer;
+}
+
+.direct-messages {
+    background-image: url('../../assets/serversPage/discord-2-128.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dm-border {
+    margin-top: 10px;
+    width: 50%;
+    align-self: center;
+    border-bottom: 2px solid #373A3F;
+}
+
+.add-server {
+    color: #3BA55D !important;
+    font-size: 40px !important;
+    font-weight: 300 !important;
+    line-height: 40px !important;
+}
+
+.add-server:hover {
+    transition: border-radius .2s;
+    border-radius: 17px;
+    background-color: #3BA55D !important; 
+    color: white !important; 
+    cursor: pointer;
+}
+
+.server-show {
+    height: 100%;
+    width: 250px;
+    position: absolute;
+    left: 72px;
+    top: 0;
+    background-color: #2F3136;
+}
+
+.channel-show {
+    position: absolute;
+    height: 100%;
+    width: 1350px;
+    left: 322px;
+    background-color: #36393F;
+}
+
+.users-show {
+    position: absolute;
+    height: 100%;
+    width: 1350px;
+    left: 1672px;
+    background-color: #2F3136;
+}

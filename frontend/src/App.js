@@ -2,11 +2,15 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
-import HomePage from './components/HomePage';
+import SplashPage from './components/SplashPage';
+import ServerIndex from './components/ServersIndexPage'
 
 function App() {
   return (
     <Switch>
+      <Route path="/servers">
+        <ServerIndex />
+      </Route>
       <Route path="/login">
         <LoginFormPage />
       </Route>
@@ -14,7 +18,7 @@ function App() {
         <SignupFormPage />
       </Route>
       <Route path="/">
-        <HomePage /> 
+        <SplashPage /> 
       </Route>
     </Switch>
   );
