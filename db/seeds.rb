@@ -13,6 +13,7 @@ ApplicationRecord.transaction do
     User.destroy_all
     #first user will have an id of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('servers')
     puts 'Creating new users'
 
     User.create!(
@@ -33,6 +34,56 @@ ApplicationRecord.transaction do
         password: 'password'
     )
 
+    Server.create!(
+        name: "TestServer",
+        owner_id: 1
+    )
+
+    Channel.create!(
+        server_id: 1,
+        name: "general"
+    )
+
+    Channel.create!(
+        server_id: 1,
+        name: "memes"
+    )
+
+    Server.create!(
+        name: "TestServer2",
+        owner_id: 2
+    )
+
+    Channel.create!(
+        server_id: 2,
+        name: "general"
+    )
+
+    ServerMember.create!(
+        member_id: 1,
+        server_id: 1
+    )
+
+    ServerMember.create!(
+        member_id: 2,
+        server_id: 1
+    )
+
+    ServerMember.create!(
+        member_id: 3,
+        server_id: 1
+    )
+
+    ServerMember.create!(
+        member_id: 1,
+        server_id: 2
+    )
+
+    ServerMember.create!(
+        member_id: 2,
+        server_id: 2
+    )
+    
     puts 'Done seeding db'
     
 end

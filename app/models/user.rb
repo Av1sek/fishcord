@@ -49,6 +49,18 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token, :generate_default_values
 
+    has_many :owned_servers, 
+        foreign_key: :owner_id,
+        class_name: :Server
+    
+    has_many :servers_joined,
+        foreign_key: :member_id,
+        class_name: :ServerMember
+
+    has_many :subscribed_servers,
+        through: :servers_joined,
+        source: :server
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user&.authenticate(password)

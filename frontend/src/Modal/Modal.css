@@ -7,6 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
   }
   
   #modal-background {
@@ -20,8 +21,346 @@
   
   #modal-content {
     position: absolute;
-    background-color: white;
     width: 450px;
     height: 550px;
     border-radius: 5px;
   }
+
+.create-server-first-page {
+  position: absolute;
+  background-color: white;
+  width: 450px;
+  height: 550px;
+  border-radius: 5px;
+  animation-name: first-page-show;
+  animation-duration: .5s;
+}
+
+@keyframes first-page-show {
+  from {margin-top: 50px;}
+  to {margin-top: 0px;} 
+}
+
+/* Create Server Form */
+
+.create-server-modal-x {
+  background-color: white;
+  color: #A7ABB0;
+  outline-width: 0;
+  border: none;
+  font-size: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.create-server-modal-x:hover {
+  transition: color .5s;
+  color: black;
+  cursor: pointer;
+}
+
+.create-server-text {
+  color: black;
+  font-weight: 900;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.create-server-secondary-text {
+  color: #8A8F96;
+  font-weight: 350;
+  font-size: 15px;
+  text-align: center;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.create-server-btn-container {
+  margin-top: 15px;
+  border: 1px solid lightgrey;
+  margin-left: 25px;
+  width: 400px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.own-server-img {
+  background-image: url(../assets/serversPage/createServerForm/create_server.svg);
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.gaming-server-img {
+  background-image: url(../assets/serversPage/createServerForm/gaming_discord_logo.svg);
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.school-server-img {
+  background-image: url(../assets/serversPage/createServerForm/discord_school_logo.svg);
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.study-server-img {
+  background-image: url(../assets/serversPage/createServerForm/discord_study_logo.svg);
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.own-server-text {
+  color: #2E3338;
+  font-size: 15px;
+  font-weight: bold;
+  align-self: center;
+  margin-left: 5px;
+}
+
+.own-server-arr {
+  content: "\203A";
+  color: #4F5660;
+  font-size: 50px;
+  font-weight: 200;
+  align-self: center;
+  margin-left: 5px;
+  margin-top: -5px;
+  position: absolute;
+  right: 40px;
+}
+
+.create-server-btn-container:hover {
+  background-color: rgb(236, 232, 232);
+  cursor: pointer;
+}
+
+.create-server-btn-container:active {
+  background-color: rgba(219, 217, 217, 0.745);
+}
+
+.create-server-template-text {
+  color: #646A73;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.join-server-form {
+  background-color: #F2F3F5;
+  margin-top: 10px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.join-server-text {
+  color: #060607;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  line-height: 45px;
+}
+
+.join-server-button {
+  background-color: #6A7480;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 400px;
+  margin-left: 25px;
+}
+
+.join-server-button:hover {
+  background-color: #4d545c;
+  cursor: pointer;
+}
+
+.join-server-button:active {
+  background-color: #44484f;
+  cursor: pointer;
+}
+
+#inactive {
+  display: none;
+}
+
+.create-server-second-page {
+  position: absolute;
+  background-color: white;
+  width: 450px;
+  height: 400px;
+  margin-top: 75px;
+  border-radius: 5px;
+  animation-name: second-page-shorten;
+  animation-duration: .5s;
+}
+
+@keyframes second-page-shorten {
+  from {height: 550px; margin-top: 0px;}
+  to {height: 400px; margin-top: 75px;} 
+}
+
+.for-friends-img {
+  background-image: url(../assets/serversPage/createServerForm/for_friends.svg);
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.for-club-img {
+  background-image: url(../assets/serversPage/createServerForm/for_club.svg);
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.server-for-text {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.grey-text {
+  color: #686E76;
+}
+
+.blue-text {
+  color: #0068E0;
+}
+
+.blue-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.server-back {
+  background-color: #F2F3F5;
+  margin-top: 20px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.server-back-button {
+  color: black;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 40px;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+.server-back-button:hover {
+  cursor: pointer;
+}
+
+.create-server-third-page {
+  position: absolute;
+  background-color: white;
+  width: 450px;
+  height: 400px;
+  margin-top: 75px;
+  border-radius: 5px;
+}
+
+.server-form-logo-img {
+  background-image: url(../assets/serversPage/discord-2-128.png);
+  width: 100px;
+  height: 100px;
+  background-color: rgb(80, 91, 99);
+  border-radius: 50px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 175px;
+  margin-top: 15px;
+}
+
+.server-create-form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.server-create-form > label {
+  color: #4F5660;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  height: 60px;
+  border-radius: 5px !important;
+}
+
+.server-create-form > label > input {
+  background-color: #E3E5E8;
+  color: #2E3338;
+  width: 400px;
+  height: 45px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-left: -5px;
+  border: none;
+}
+
+.server-create-form > label > input:focus {
+  outline-color: #E3E5E8;
+  outline-width: 0;
+}
+
+.new-server-create-button {
+  background-color: #5865F2;
+  position: absolute;
+  color: white;
+  width: 100px;
+  font-size: 14px;
+  height: 30px;
+  border-radius: 3px;
+  outline-width: 0;
+  border: none;
+  text-align: center;
+  line-height: 30px;
+  right: 30px;
+  bottom: 15px;
+}
+
+.new-server-create-button:hover {
+  background-color: rgb(77, 88, 214);   
+  cursor: pointer;
+}
+
+.new-server-create-button:active {
+  background-color: rgb(65, 74, 178);   
+}
+
+.server-form-text {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  font-size: 11px;
+  justify-content: center;
+  font-weight: 400;
+  margin-top: 75px;
+  margin-left: 20px;
+}

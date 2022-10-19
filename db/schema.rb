@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_10_145110) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_190044) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.bigint "server_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_channels_on_server_id"
+  end
+
+  create_table "server_members", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "server_id"
+    t.index ["member_id"], name: "index_server_members_on_member_id"
+    t.index ["server_id"], name: "index_server_members_on_server_id"
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_servers_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -27,4 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_145110) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "channels", "servers"
+  add_foreign_key "server_members", "servers"
+  add_foreign_key "server_members", "users", column: "member_id"
+  add_foreign_key "servers", "users", column: "owner_id"
 end
