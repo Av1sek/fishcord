@@ -2,7 +2,12 @@ class Api::ChannelsController < ApplicationController
     wrap_parameters include: Server.attribute_names + ['serverId'] 
 
     def create
-
+        @channel = Channel.new(channel_params)
+        if @channel.save! 
+            render '/api/channels/create'
+        else 
+            render json: {errors: @server.errors.full_messages}
+        end
     end
 
     def index

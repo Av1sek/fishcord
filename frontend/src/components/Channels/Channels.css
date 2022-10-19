@@ -5,6 +5,7 @@
     left: 72px;
     top: 0;
     background-color: #2F3136;
+    user-select: none;
 }
 
 .server-name-dropdown {
@@ -12,6 +13,7 @@
     flex-direction: row;
     user-select: none;
     background-color: #2F3136;
+    border-bottom: 1px solid #232527;
 }
 
 .server-name-text {
@@ -31,13 +33,210 @@
     color: #D5D6D7;
     font-weight: 100;
     height: 50px;
-    font-size: 24px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 35px;
     text-align: center;
     width: 20%;
+    transform:scale(1.5,1);
 }
 
 .server-name-dropdown:hover{
     cursor: pointer;
     background-color: #393b3e;
+}
+
+.server-edit-dropdown-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.01);
+    z-index: 5;
+}
+
+.server-edit-dropdown-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    background-color: #18191C;
+    width: 210px;
+    height: 90px;
+    margin-top: 5px;
+    margin-left: 20px;
+    z-index: 10;
+    animation-name: drop-down;
+    animation-duration: .2s;
+}
+
+@keyframes drop-down {
+  from { width: 180px; height: 10px; margin-left: 30px;}
+  to { width: 210px; height: 90px; margin-left: 20px;}
+}
+
+.server-dropdown-settings {
+    color: #B9BBBE;
+    height: 30px;
+    width: 170px;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-left: 10px;
+    line-height: 30px;
+    border-radius: 3px;
+    padding-left: 20px;
+    border-top: 1px solid #8C8D92;
+    display: flex;
+    flex-direction: row;
+}
+
+.server-dropdown-gear {
+    margin-top: 7px;
+    margin-left: 50px;
+}
+
+.server-dropdown-settings:hover {
+    cursor: pointer;
+    background-color: #5865F2;
+    color: white;
+}
+
+.server-dropdown-settings:active {
+    background-color: #434dba;
+}
+
+.server-dropdown-create-channel {
+    color: #B9BBBE;
+    height: 30px;
+    width: 170px;
+    margin-top: 10px;
+    margin-left: 10px;
+    line-height: 30px;
+    border-radius: 3px;
+    padding-left: 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #8C8D92;
+    display: flex;
+    flex-direction: row;
+}
+
+.server-dropdown-create {
+    margin-top: -1px;
+    margin-left: 53px;
+}
+
+.server-dropdown-create-channel:hover {
+    cursor: pointer;
+    background-color: #5865F2;
+    color: white;
+}
+
+.server-dropdown-create-channel:active {
+    background-color: #434dba;
+}
+
+.channel-category {
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+}
+
+.channel-category-text {
+    color: #8C8D92;
+    width: 100%;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.channel-category:hover > .channel-category-text {
+    color: #c2c3c9;
+    cursor: pointer;
+}
+
+.channel-category-create {
+    width: 20px;
+    height: 30px;
+}
+
+.svg-22-plus {
+    width: 22px;
+    height: 22px;
+}
+
+.svg-22-plus:hover {
+    cursor: pointer;
+}
+
+.svg-22-plus:hover > .channel-plus-icon {
+    fill: #c2c3c9;
+}
+
+.svg-22-plus:active {
+    cursor: pointer;
+}
+
+.svg-22-plus:active > .channel-plus-icon {
+    fill: white;
+}
+
+.channel-list-item {
+    display: flex;
+    flex-direction: row;
+    height: 34px;
+    width: 225px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.channel-list-item:hover > .channel-list-text {
+    color: #b8babe;
+}
+
+.channel-list-item:hover {
+    background-color: #41444a;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.channel-list-item:active {
+    background-color: #56585c;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.channel-list-item:active > .channel-list-text {
+    color: white;
+}
+
+.channel-tag-img {
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
+    margin-top: 3px;
+    color: #84868B;
+}
+
+.channel-tag-gear {
+    position: absolute;
+    right: 26px;
+    margin-top: 7px;
+    color: #84868B;
+}
+
+.svg-22 {
+    width: 22px;
+    height: 22px;
+}
+
+.channel-list-text {
+    color: #84868B;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-top: 6px;
 }

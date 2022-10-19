@@ -297,7 +297,6 @@
 .server-create-form {
   display: flex;
   flex-direction: column;
-
 }
 
 .server-create-form > label {
@@ -363,4 +362,130 @@
   font-weight: 400;
   margin-top: 75px;
   margin-left: 20px;
+}
+
+.create-channel-page {
+  position: absolute;
+  background-color: #36393F;
+  width: 450px;
+  height: 280px;
+  margin-top: 125px;
+  border-radius: 5px;
+}
+
+.create-channel-modal-x {
+  background-color: #36393F;
+  color: #777A7F;
+  outline-width: 0;
+  border: none;
+  font-size: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.create-channel-modal-x:hover {
+  transition: color .25s;
+  color: white;
+  cursor: pointer;
+}
+
+.create-channel-text {
+  color: white;
+  font-weight: 900;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.create-channel-secondary-text {
+  color: #8A8F96;
+  font-weight: 350;
+  font-size: 15px;
+  text-align: center;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.channel-create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-create-form > label {
+  color: #DCDDDE;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  height: 60px;
+  border-radius: 5px !important;
+}
+
+.channel-create-form > label > input {
+  background-color: #202225;
+  color: #D9DADB;
+  width: 400px;
+  height: 45px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-left: -5px;
+  border: none;
+}
+
+.channel-create-form > label > input:focus {
+  outline-color: #DCDDDE;
+  outline-width: 0;
+}
+
+.new-channel-create-button {
+  background-color: #5865F2;
+  position: absolute;
+  color: white;
+  width: 100px;
+  font-size: 14px;
+  height: 30px;
+  border-radius: 3px;
+  outline-width: 0;
+  border: none;
+  text-align: center;
+  line-height: 30px;
+  right: 30px;
+  bottom: 15px;
+}
+
+.new-channel-create-button:hover {
+  background-color: rgb(77, 88, 214);   
+  cursor: pointer;
+}
+
+.new-channel-create-button:active {
+  background-color: rgb(65, 74, 178);   
+}
+
+.channel-back {
+  background-color: #2F3136;
+  margin-top: 20px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.channel-back-button {
+  background-color: #2F3136;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 40px;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+.channel-back-button:hover {
+  cursor: pointer;
 }
