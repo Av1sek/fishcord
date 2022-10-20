@@ -4,10 +4,18 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
 import SplashPage from './components/SplashPage';
 import ServerPage from './components/Server';
+import ServerEditPage from './components/ServerEditPage';
+import ChannelEditPage from './components/ChannelEditPage'
 
 function App() {
   return (
     <Switch>
+      <Route path="/servers/:id/edit">
+        <ServerEditPage />
+      </Route>
+      <Route path="/channels/:id/edit">
+        <ChannelEditPage />
+      </Route>
       <Route path="/servers/:id">
         <ServerPage />
       </Route>

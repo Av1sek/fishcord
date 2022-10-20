@@ -14,7 +14,11 @@ function ServerIndex({onClose}) {
     const serversList = Object.values(servers).map(
         server => 
         <div className="server" key={server.id + "/serverId"}>
-            <h3 onClick={() => history.push(`/servers/${server.id}`)}>{server.name[0]}</h3>
+            <h3 onClick={() => history.push(`/servers/${server.id}`)}>
+                {
+                    server.name.split(" ").map(word => { return word[0]}).join(' ')
+                }
+            </h3>
         </div>
         )
     const [modalOpen, setModalOpen] = useState(false);

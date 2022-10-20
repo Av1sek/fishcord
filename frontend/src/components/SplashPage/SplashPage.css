@@ -1,6 +1,5 @@
 body {
     background-image: none;
-    background-color: #FFFFFF;
     font-family: Helvetica Neue;
 }
 
@@ -144,9 +143,11 @@ body {
 
 .splash-invite-only {
     position: absolute;
+    background-color: white;
     left: 0;
-    top: 730px;
+    top: 630px;
     width: 100%;
+    padding-top: 100px;
     height: 610px;
     min-height: 610px;
     min-width: 100%;

@@ -26,11 +26,15 @@ class Api::ServersController < ApplicationController
     end
 
     def destroy
-        @server = Server.find_by(id: params[:server_id])
-        debugger
+        @server = Server.find_by(id: params[:id])
         @server.destroy
     end
 
+    def update
+        @server = Server.find(params[:id])
+        @server.update(server_params)
+    end
+    
     private
 
     def server_params

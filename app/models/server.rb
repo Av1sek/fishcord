@@ -27,8 +27,8 @@ class Server < ApplicationRecord
         source: :member
 
     has_many :channels,
-        foreign_key: :channel_id,
-        class_name: :Server,
+        foreign_key: :server_id,
+        class_name: :Channel,
         dependent: :destroy
     
 end

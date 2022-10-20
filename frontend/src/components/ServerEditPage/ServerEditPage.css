@@ -1,0 +1,210 @@
+body {
+    background-color: #36393F;
+}
+
+.server-edit-page {
+    animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.server-name-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #2F3136;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.server-name-edit-text {
+    width: 200px;
+    height: 15px;
+    font-size: 12px;
+    color: #96989D;
+    font-weight: bold;
+    transform:scale(1.2,1);
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.server-sidebar-overview-text {
+    background-color: #42464D;
+    width: 190px;
+    height: 30px;
+    font-size: 14px;
+    color: white;
+    font-weight: 400;
+    transform:scale(1.2,1);
+    text-align: left;
+    padding-left: 10px;
+    margin-left: 67px;
+    line-height: 30px;
+    margin-top: 20px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.server-sidebar-overview-text:hover {
+    background-color: #565a62;
+    cursor: pointer;
+}
+
+.server-overview-container {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 80%;
+    height: 100%;
+}
+
+.server-overview-edit-text {
+    width: 190px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    transform:scale(1.2,1);
+    margin-left: 40px;
+    line-height: 30px;
+    margin-top: 20px;
+    user-select: none;
+}
+
+.server-overview-exit-container {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    color: #B9BBBE;
+    border: 1px solid #B9BBBE;
+    font-size: 20px;
+    right: 100px;
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+}
+
+.server-overview-exit-container:hover {
+    cursor: pointer;
+    border: 1px solid white;
+    color: white;
+}
+
+.server-overview-exit-text {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.server-overview-img {
+    background-color: #36393F;
+    color: white;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    background-size: 30px;
+    line-height: 100px;
+    font-size: 30px;
+    margin-left: 60px;
+    margin-top: 20px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 5px 5px 5px #2d2e2faf;
+    overflow: hidden;
+}
+
+.server-edit-form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.server-edit-form > label {
+    color: #DCDDDE;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    height: 60px;
+    border-radius: 5px !important;
+}
+  
+.server-edit-form > label > input {
+    background-color: #202225;
+    color: #D9DADB;
+    width: 400px;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: -5px;
+    border: none;
+}
+  
+.server-edit-form > label > input:focus {
+    outline-color: #DCDDDE;
+    outline-width: 0;
+}
+  
+.server-edit-button {
+    background-color: #2D7D46;
+    color: white;
+    width: 400px;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-top: 0px;
+    height: 30px;
+    border-radius: 3px;
+    outline-width: 0;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+}
+
+.server-edit-button:hover {
+    cursor: pointer;
+    background-color: #28713f;
+}
+
+.server-edit-button:active {
+    background-color: #26683b;
+}
+
+.delete-server-button {
+    background-color: #D83C3E;
+    width: 190px;
+    height: 30px;
+    font-size: 14px;
+    color: white;
+    transform:scale(1.2,1);
+    text-align: left;
+    padding-left: 10px;
+    margin-left: 67px;
+    line-height: 30px;
+    margin-top: 20px;
+    border-radius: 5px;
+    outline-width: 0;
+    border: 0;
+    user-select: none;
+}
+
+.delete-server-button:hover {
+    cursor: pointer;
+    background-color: #c63537;
+}
+
+.delete-server-button:active {
+    background-color: #b13133;
+}

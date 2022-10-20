@@ -209,8 +209,8 @@
 }
 
 @keyframes second-page-shorten {
-  from {height: 550px; margin-top: 0px;}
-  to {height: 400px; margin-top: 75px;} 
+  from {margin-top: 125px;}
+  to {margin-top: 75px;} 
 }
 
 .for-friends-img {
@@ -279,6 +279,8 @@
   height: 400px;
   margin-top: 75px;
   border-radius: 5px;
+  animation-name: second-page-shorten;
+  animation-duration: .5s;
 }
 
 .server-form-logo-img {
