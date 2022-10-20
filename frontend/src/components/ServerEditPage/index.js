@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { fetchChannels } from '../../store/channels';
-import { fetchServers, deleteServer } from '../../store/servers';
+import { fetchServers, deleteServer, updateServer } from '../../store/servers';
 import './ServerEditPage.css'
 
 function ServerEditPage() {
@@ -51,6 +51,23 @@ function ServerEditPage() {
         history.push(`/servers/1`)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // setErrors([]);
+        return dispatch(updateServer({id: id, owner_id: sessionUser.id, name: serverName }))
+          .catch(async (res) => {
+            let data;
+            try {
+              data = await res.clone().json();
+            } catch {
+            //   data = await res.text(); 
+            }
+            // if (data?.errors) setErrors(data.errors);
+            // else if (data) setErrors([data]);
+            // else setErrors([res.statusText]);
+          });
+      }
+
     if (servers[id]) {
         return (
             <div className="server-edit-page">
@@ -77,7 +94,7 @@ function ServerEditPage() {
                         {serverDisplayName}
                     </div>
                     <div className="channel-create-form-container">
-                        <form className="channel-create-form">
+                        <form className="channel-create-form" onSubmit={handleSubmit}>
                             <label>SERVER NAME
                                 <input type="text" value={serverName} onChange={handleNameChange} />
                             </label>
