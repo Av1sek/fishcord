@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Link](https://fishcord.herokuapp.com/)
 
-Things you may want to cover:
+Fishcord, a Discord clone, is an instant messaging social platform. Users are able to create unique accounts and communicate with other users. They also have the option to create a server where they can communicate with their friends or grow a community.
 
-* Ruby version
+# Technologies
 
-* System dependencies
+* Javascript
+* React
+* Redux
+* Ruby on Rails
+* Websockets/ActionCable
+* Webpack
+* Heroku
+* PostgreSQL 
 
-* Configuration
+# Features
 
-* Database creation
+* Users are able to create/update/delete accounts
+* Users are able to create/update/delete servers
+* Users are able to create/update/delete channels
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Servers display the channels that they contain.
+Channels display the messages that was sent in that specific channel. 
+Users are able to send/edit/delete messages.
