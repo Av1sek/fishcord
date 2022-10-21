@@ -1,7 +1,7 @@
 import React from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './SplashPage.css';
 
 function SplashPage() {
@@ -24,9 +24,9 @@ function SplashPage() {
                        <NavLink className="nav-home-text" to="/">Fishcord</NavLink>
                     </div>
                     <div className="secondary-nav">
-                        <NavLink className="other-website" to="/">Github</NavLink>
-                        <NavLink className="other-website" to="/">LinkedIn</NavLink>
-                        <NavLink className="other-website" to="/">Personal Site</NavLink>
+                        <Link to={{ pathname: "https://github.com/Av1sek/fishcord" }} target="_blank" className="other-website">Github</Link>
+                        <Link to={{ pathname: "https://www.linkedin.com/in/avisek-pandit-374096247/" }} target="_blank" className="other-website">LinkedIn</Link>
+                        <Link to={{ pathname: "https://angel.co/u/avisek-pandit" }} target="_blank" className="other-website">AngelList</Link>
                     </div>
                     <div className="nav-login">
                         {sessionUser ? <NavLink onClick={handleLogout} className="nav-login-text" to="/">{btnTxt}</NavLink> : <NavLink className="nav-login-text" to="/login">{btnTxt}</NavLink> }
@@ -67,3 +67,13 @@ function SplashPage() {
 }
 
 export default SplashPage;
+
+<div className="container">
+    <div className="text">
+        <h1>TEXT</h1>
+        <button></button>
+    </div>
+    <div className="img">
+        <img></img>
+    </div>
+</div>

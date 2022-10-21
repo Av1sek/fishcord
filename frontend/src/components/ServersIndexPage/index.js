@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchServers, createServer} from '../../store/servers';
-import { Redirect, Link, useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import Modal from '../../Modal/Modal';
 
 import './Servers.css'
 
-function ServerIndex({onClose}) {
+function ServerIndex() {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
@@ -82,7 +82,7 @@ function ServerIndex({onClose}) {
             <div className="dm-border"></div>
             {serversList}
             <div className="server">
-                <h3 className="add-server" onClick={() => {setModalOpen(true); console.log('clicked');}}>+</h3>
+                <h3 className="add-server" onClick={() => {setModalOpen(true)}}>+</h3>
                 <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
                     {page === 1 ? 
                         <div className="create-server-first-page">
