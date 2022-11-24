@@ -1,11 +1,12 @@
 .server-index-container {
     background-color: #202225;
-    width: 72px;
+    width: 82px;
     height: 100%;
     display: flex;
     flex-direction: column;
     user-select: none;
     overflow-y: auto;
+    align-items: center;
 }
 
 .server-index-container::-webkit-scrollbar {
@@ -13,7 +14,6 @@
 }
 
 .server > h3 {
-    margin-left: 11px;
     margin-bottom: 0px;
     margin-top: 10px;
     color: #DBDCDD;
@@ -26,10 +26,6 @@
     border-radius: 50px;
     font-weight: 400;
     overflow: hidden;
-}
-
-.server:hover {
-    border-left: 1px solid white;
 }
 
 .server > h3:hover {

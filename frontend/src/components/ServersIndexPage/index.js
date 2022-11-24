@@ -14,7 +14,7 @@ function ServerIndex() {
     const serversList = Object.values(servers).map(
         server => 
         <div className="server" key={server.id + "/serverId"}>
-            <h3 onClick={() => history.push(`/servers/${server.id}`)}>
+            <h3 onClick={() => history.push(`/servers/${server.id}/1`)}>
                 {
                     server.name.split(" ").map(word => { return word[0]}).join(' ')
                 }

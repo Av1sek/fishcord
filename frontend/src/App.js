@@ -16,7 +16,7 @@ function App() {
       <Route path="/channels/:id/edit">
         <ChannelEditPage />
       </Route>
-      <Route path="/servers/:id">
+      <Route path="/servers/:id/:channelId">
         <ServerPage />
       </Route>
       <Route path="/login">

@@ -24,7 +24,7 @@ function ChannelEditPage() {
     }, [displayingChannelName.current])
 
     const handleDelete = () => {
-        history.push(`/servers/${channel.serverId}`)
+        history.push(`/servers/${channel.serverId}/1`)
         dispatch(deleteChannel(id))
     }
     
@@ -62,7 +62,7 @@ function ChannelEditPage() {
                     <div className="server-overview-edit-text">
                         Overview
                     </div>
-                    <div className="server-overview-exit-container" onClick={() => {history.push(`/servers/${channel.serverId}`)}}>
+                    <div className="server-overview-exit-container" onClick={() => {history.push(`/servers/${channel.serverId}/1`)}}>
                         X
                         <div className="server-overview-exit-text">
                             ESC
