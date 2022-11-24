@@ -2,9 +2,6 @@
     background-color: #202225;
     width: 72px;
     height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
     display: flex;
     flex-direction: column;
     user-select: none;
