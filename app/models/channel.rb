@@ -5,6 +5,8 @@ class Channel < ApplicationRecord
     belongs_to :server,
         foreign_key: :server_id
 
-    
+    has_many :messages,
+        foreign_key: :chatroom_id,
+        class_name: :Message
 
 end

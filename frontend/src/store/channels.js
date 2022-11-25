@@ -18,7 +18,7 @@ const getChannel = channel => {
     }
 }
 
-const REMOVE_CHANNEL = 'servers/REOMVE_CHANNEL'
+const REMOVE_CHANNEL = 'servers/REMOVE_CHANNEL'
 
 const removeChannel = channelId => {
     return {
