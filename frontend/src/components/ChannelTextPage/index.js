@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchChannels } from "../../store/channels";
+import { createMessage, fetchMessages } from "../../store/messages";
+import { fetchUser, fetchUsers } from "../../store/users";
 import './ChannelTextPage.css'
 
 const ChannelTextPage = () => {
@@ -9,14 +11,46 @@ const ChannelTextPage = () => {
     const { id, channelId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
     const [loaded, setLoaded] = useState(false);
+    const [messagesLoaded, setMessagesLoaded] = useState(false);
+    const [usersLoaded, setUsersLoaded] = useState(false);
     const channels = useSelector(state => state.channels)
     const servers = useSelector(state => state.servers)
+    const messages = useSelector(state => state.messages)
+    const users = useSelector(state => state.users)
+
+    const [content, setContent] = useState("");
 
     useEffect(() => {
         dispatch(fetchChannels(id)).then(() => setLoaded(true));
     }, [channelId])
 
-    return loaded && (
+    useEffect(() => {
+        dispatch(fetchMessages(channelId)).then(() => {setMessagesLoaded(true)});
+        dispatch(fetchUsers(id)).then(() => setUsersLoaded(true));
+    }, [])
+
+    const usersArr = Object.values(users)
+
+    const messagesList = Object.values(messages).map((message) => (
+        <div className="message-container" key={`${message.id}`}>
+            {usersLoaded && <div className="message-author-div">
+                {users[message.authorId] && users[message.authorId].username}
+            </div>}
+            <div className="message-content-div">
+                {message.content}
+            </div>
+        </div>
+    )) 
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        console.log(content, sessionUser.id, channelId)
+        setUsersLoaded(false);
+        setMessagesLoaded(false);
+        dispatch(createMessage({content: content, author_id: sessionUser.id, chatroom_id: channelId}))
+    }
+
+    return loaded && messagesLoaded && usersLoaded && (
         <div className="channel-text-page-container">
             <div className="channel-text-page-header">
                 <div className="channel-header-tag-img">
@@ -28,10 +62,13 @@ const ChannelTextPage = () => {
             </div>
             <div className="channel-content-container">
                 <div className="channel-text-container">
-                    <div className="channel-text-messages-container"></div>
-                    <div className="channel-text-messages-form-container">
-                        <div className="channel-text-messages-form-text"></div>
+                    <div className="channel-text-messages-container">
+                        {messagesList}
                     </div>
+                    <form className="channel-text-messages-form-container" onSubmit={sendMessage}>
+                        <input type="text" className="channel-text-messages-form-text" placeholder="Send a Message" value={content} onChange={(e) => setContent(e.target.value)}>
+                        </input>
+                    </form>
                 </div>
                 <div className="channel-users-container">
                 </div>

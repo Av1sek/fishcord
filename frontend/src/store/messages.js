@@ -27,54 +27,54 @@ const removeMessage = messageId => {
     }
 }
 
-export const fetchChannels = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/channels?serverId=${id}`);
+export const fetchMessages = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/messages?chatroomId=${id}`);
     const data = await response.json();
-    dispatch(getChannels(data));
+    dispatch(getMessages(data));
     return response;
 }
 
-export const fetchChannel = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/channels/${id}`);
+export const fetchMessage = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/messages/${id}`);
     const data = await response.json();
-    dispatch(getChannel(data));
+    dispatch(getMessage(data));
     return response;
 }
 
 export const createMessage = (message) => async (dispatch) => {
-    const {name, server_id} = channel
-    const response = await csrfFetch(`/api/channels`, {
+    const {content, author_id, chatroom_id} = message
+    const response = await csrfFetch(`/api/messages`, {
         method: 'POST',
         body: JSON.stringify({
-            channel: channel
+            message: message
         }),
         headers: {
             'Content-Type': 'application/json'
         }
     });
     const data = await response.json();
-    dispatch(getChannel(data.channel));
+    dispatch(getMessage(data.message));
     return response;
 }   
 
-// export const updateChannel = (newChannel) => async (dispatch) => {
-//     const {id, name, server_id} = newChannel
-//     const response = await csrfFetch(`/api/channels/${newChannel.id}`, {
-//         method: 'PATCH',
-//         body: JSON.stringify({
-//             channel: newChannel
-//         }),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-//     const data = await response.json();
-//     dispatch(getChannel(data.channel));
-//     return response;
-// }   
+export const updateMessage = (newMessage) => async (dispatch) => {
+    const {id, content, author_id, chatroom_id} = newMessage
+    const response = await csrfFetch(`/api/messages/${newMessage.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+            message: newMessage
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await response.json();
+    dispatch(getMessage(data.message));
+    return response;
+}   
 
 
-export const deleteChannel = (messageId) => async (dispatch) => {
+export const deleteMessage = (messageId) => async (dispatch) => {
     await csrfFetch(`/api/messages/${messageId}`, {method: 'DELETE'});
     dispatch(removeMessage(messageId));
 }

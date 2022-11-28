@@ -4,7 +4,7 @@ class Api::MessagesController < ApplicationController
     def create
         @message = Message.new(message_params)
         if @message.save!
-            render '/api/messages/index'
+            render '/api/messages/show'
         else
             render json: {errors: @message.errors.full_messages}
         end            
@@ -16,13 +16,13 @@ class Api::MessagesController < ApplicationController
     end
 
     def index
-        @messages = Message.where(chatroom_id: params[:id])
+        @messages = Message.where(chatroom_id: params[:chatroom_id])
     end
 
     private
 
     def message_params 
-        params.require(:message).premit(:content, :author_id, :chatroom_id)
+        params.require(:message).permit(:content, :author_id, :chatroom_id)
     end
     
 end

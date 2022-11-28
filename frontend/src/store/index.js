@@ -3,8 +3,10 @@ import thunk from 'redux-thunk';
 import session from './session';
 import servers from './servers';
 import channels from './channels';
+import messages from './messages';
+import users from './users';
 
-const rootReducer = combineReducers({session, servers, channels}) 
+const rootReducer = combineReducers({session, servers, channels, messages, users}) 
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {

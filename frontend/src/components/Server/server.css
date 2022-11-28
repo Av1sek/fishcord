@@ -14,3 +14,7 @@ html, body {
     display: flex;
     flex-direction: row;    
 }
+
+input {
+    padding-left: 5px;
+}

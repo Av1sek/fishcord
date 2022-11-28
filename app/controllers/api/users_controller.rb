@@ -1,9 +1,10 @@
 class Api::UsersController < ApplicationController
 
-  wrap_parameters include: User.attribute_names + ['password']
+  wrap_parameters include: User.attribute_names + ['password'] + ['serverId']
 
   def index
-    @users = User.all
+    @server = Server.find(params[:server_id])
+    @users = @server.members
     render 'api/users/index'
   end
   
