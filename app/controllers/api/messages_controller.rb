@@ -1,5 +1,5 @@
 class Api::MessagesController < ApplicationController
-    wrap_parameters include: Message.attribute_names + ['authorId'] + ['chatroomId'] 
+    wrap_parameters include: Message.attribute_names + ['authorId'] + ['chatroomId'] + ['authorName']
 
     def create
         @message = Message.new(message_params)
@@ -22,7 +22,7 @@ class Api::MessagesController < ApplicationController
     private
 
     def message_params 
-        params.require(:message).permit(:content, :author_id, :chatroom_id)
+        params.require(:message).permit(:content, :author_id, :chatroom_id, :author_name)
     end
     
 end

@@ -42,7 +42,7 @@ export const fetchMessage = (id) => async (dispatch) => {
 }
 
 export const createMessage = (message) => async (dispatch) => {
-    const {content, author_id, chatroom_id} = message
+    const {content, author_id, chatroom_id, author_name} = message
     const response = await csrfFetch(`/api/messages`, {
         method: 'POST',
         body: JSON.stringify({
@@ -58,7 +58,7 @@ export const createMessage = (message) => async (dispatch) => {
 }   
 
 export const updateMessage = (newMessage) => async (dispatch) => {
-    const {id, content, author_id, chatroom_id} = newMessage
+    const {id, content, author_id, chatroom_id, author_name} = newMessage
     const response = await csrfFetch(`/api/messages/${newMessage.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
@@ -86,7 +86,8 @@ const messageReducer = (state = {}, action) => {
         case GET_MESSAGES:
             return action.payload;
         case GET_MESSAGE:
-            return {...state, ...action.payload};
+            nextState[action.payload.id] = {...action.payload}
+            return nextState;
         case REMOVE_MESSAGE:
             delete nextState[action.payload];
             return nextState;

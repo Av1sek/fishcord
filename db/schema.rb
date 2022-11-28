@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_210432) do
     t.bigint "author_id"
     t.bigint "chatroom_id"
     t.text "content", null: false
+    t.string "author_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_messages_on_author_id"

@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration[7.0]
       t.references :author, foreign_key: {to_table: :users}
       t.references :chatroom, foreign_key: {to_table: :channels}
       t.text :content, null: false
+      t.string :author_name, null: false
       t.timestamps
     end
   end

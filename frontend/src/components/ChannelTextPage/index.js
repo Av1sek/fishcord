@@ -33,8 +33,8 @@ const ChannelTextPage = () => {
 
     const messagesList = Object.values(messages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
-            {usersLoaded && <div className="message-author-div">
-                {users[message.authorId] && users[message.authorId].username}
+            {<div className="message-author-div">
+                {message.authorName}
             </div>}
             <div className="message-content-div">
                 {message.content}
@@ -44,10 +44,11 @@ const ChannelTextPage = () => {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        console.log(content, sessionUser.id, channelId)
-        setUsersLoaded(false);
-        setMessagesLoaded(false);
-        dispatch(createMessage({content: content, author_id: sessionUser.id, chatroom_id: channelId}))
+        dispatch(createMessage({content: content, author_id: sessionUser.id, chatroom_id: channelId, author_name: sessionUser.username})).then(() => {
+            let scrollDiv = document.getElementsByClassName("channel-text-messages-container")[0];
+            scrollDiv.scrollTop = scrollDiv.scrollHeight;
+        })
+        setContent("");
     }
 
     return loaded && messagesLoaded && usersLoaded && (

@@ -64,12 +64,14 @@
 }
 
 .channel-text-messages-container {
+    min-height: 0px;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: flex-end;
+    flex: 1;
+    overflow-y: scroll !important;
 }
 
 .message-container {
@@ -86,7 +88,6 @@
 
 .message-content-div {
     color: #D8D9DA;
-
 }
 
 .channel-text-messages-container::-webkit-scrollbar {
