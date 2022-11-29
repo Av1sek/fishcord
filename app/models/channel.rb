@@ -7,6 +7,7 @@ class Channel < ApplicationRecord
 
     has_many :messages,
         foreign_key: :chatroom_id,
-        class_name: :Message
+        class_name: :Message,
+        dependent: :destroy
 
 end

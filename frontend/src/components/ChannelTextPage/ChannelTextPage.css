@@ -67,7 +67,7 @@
     min-height: 0px;
     width: 100%;
     height: 100%;
-    display: block;
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     flex: 1;
@@ -78,7 +78,6 @@
     width: 100%;
     min-height: 60px;
     height: auto;
-    background-color: red;
     margin-bottom: 10px;
 }
 
@@ -101,6 +100,7 @@
   
 .channel-text-messages-container::-webkit-scrollbar-thumb {
     background: #202225;
+    border-radius: 20px;
 }
 
 .channel-text-messages-form-container {

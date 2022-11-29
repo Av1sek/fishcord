@@ -27,9 +27,13 @@ const ChannelTextPage = () => {
     useEffect(() => {
         dispatch(fetchMessages(channelId)).then(() => {setMessagesLoaded(true)});
         dispatch(fetchUsers(id)).then(() => setUsersLoaded(true));
-    }, [])
+    }, [channelId])
 
-    const usersArr = Object.values(users)
+    const usersList = Object.values(users).map((user) => (
+        <div className="user-list-item-container" key={user.id}>
+            {user.username}
+        </div>
+    ))
 
     const messagesList = Object.values(messages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
@@ -72,6 +76,7 @@ const ChannelTextPage = () => {
                     </form>
                 </div>
                 <div className="channel-users-container">
+                    {usersList}
                 </div>
             </div>
         </div>
