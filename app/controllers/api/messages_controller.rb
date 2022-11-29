@@ -4,6 +4,8 @@ class Api::MessagesController < ApplicationController
     def create
         @message = Message.new(message_params)
         if @message.save!
+            @conversation = Channel.find(@message[:chatroom_id])
+            ConversationChannel.broadcast_to(@conversation, @message)
             render '/api/messages/show'
         else
             render json: {errors: @message.errors.full_messages}

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchChannels } from "../../store/channels";
 import { createMessage, fetchMessages } from "../../store/messages";
 import { fetchUser, fetchUsers } from "../../store/users";
+import { createConsumer } from "@rails/actioncable";
 import './ChannelTextPage.css'
 
 const ChannelTextPage = () => {
@@ -15,19 +16,53 @@ const ChannelTextPage = () => {
     const [usersLoaded, setUsersLoaded] = useState(false);
     const channels = useSelector(state => state.channels)
     const servers = useSelector(state => state.servers)
-    const messages = useSelector(state => state.messages)
+    const stateMessages = useSelector(state => state.messages)
     const users = useSelector(state => state.users)
-
+    
+    const [messages, setMessages] = useState([]);
     const [content, setContent] = useState("");
+
+    useEffect(() => {
+        let cable = createConsumer("ws://localhost:5000/cable");
+
+        const paramsToSend = {
+            channel: "ConversationChannel",
+            id: channelId
+        }
+
+        const handlers = {
+            received(data) {
+                setMessages([...messages, data])
+            },
+
+            connected() {
+                console.log("connected")
+            },
+
+            disconnected() {
+                console.log("disconnected")
+            }
+        }
+
+        const subscription = cable.subscriptions.create(paramsToSend, handlers)
+
+        return function cleanup() {
+            console.log("unsubbing from ", channelId)
+            subscription.unsubscribe();
+        }
+
+    }, [channelId, messages])
 
     useEffect(() => {
         dispatch(fetchChannels(id)).then(() => setLoaded(true));
     }, [channelId])
 
     useEffect(() => {
-        dispatch(fetchMessages(channelId)).then(() => {setMessagesLoaded(true)});
+        dispatch(fetchMessages(channelId)).then(() => {
+            setMessagesLoaded(true);
+        });
         dispatch(fetchUsers(id)).then(() => setUsersLoaded(true));
-    }, [channelId])
+    }, [channelId, messages])
 
     const usersList = Object.values(users).map((user) => (
         <div className="user-list-item-container" key={user.id}>
@@ -35,10 +70,12 @@ const ChannelTextPage = () => {
         </div>
     ))
 
-    const messagesList = Object.values(messages).map((message) => (
+    console.log(messages);
+
+    const messagesList = Object.values(stateMessages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
             {<div className="message-author-div">
-                {message.authorName}
+                {message.authorName || message.author_name}
             </div>}
             <div className="message-content-div">
                 {message.content}
