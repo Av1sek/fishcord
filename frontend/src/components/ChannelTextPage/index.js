@@ -71,13 +71,23 @@ const ChannelTextPage = () => {
         </div>
     ))
 
+    const convertDate = (date) => {
+        let strDate = new Date(date);
+        return(strDate.toLocaleDateString() + " " + strDate.toLocaleTimeString())
+    }
+ 
     const messagesList = Object.values(stateMessages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
             <div className="message-pfp-div"></div>
             <div className="message-div">
-                {<div className="message-author-div">
-                    {message.authorName || message.author_name}
-                </div>}
+                <div className="message-info-container">
+                    {<div className="message-author-div">
+                        {message.authorName || message.author_name}
+                    </div>}
+                    {<div className="message-date-div">
+                        {convertDate(message.createdAt) || convertDate(message.created_at)}
+                    </div>}
+                </div>
                 <div className="message-content-div">
                     {message.content}
                 </div>

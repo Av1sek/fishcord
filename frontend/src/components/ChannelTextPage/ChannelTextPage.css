@@ -125,25 +125,57 @@
     margin-left: 20px;
     height: auto;
     margin-bottom: 10px;
-    background-color: red;
     display: flex;
     flex-direction: row;
-    align-items: center;
 }
 
 .message-pfp-div {
-    background-color: blue;
     width: 40px;
     height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-left: 5px;
+    margin-top: 5px;
+    background-image: url(../../assets/serversPage/pfp.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
 }
 
 .message-author-div {
     color: white;
 }
 
+.message-date-div {
+    color: #9DA1A4;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.message-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 94%;
+    height: auto;
+    min-height: 60px;
+    margin-top: 1px;
+}
+
+.message-info-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .message-content-div {
     color: #D8D9DA;
+    overflow-wrap: break-word;
+    margin-top: 5px;
 }
+
 
 .channel-text-messages-container::-webkit-scrollbar {
     width: 10px;
