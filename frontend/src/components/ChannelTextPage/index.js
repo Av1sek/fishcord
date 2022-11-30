@@ -66,19 +66,21 @@ const ChannelTextPage = () => {
 
     const usersList = Object.values(users).map((user) => (
         <div className="user-list-item-container" key={user.id}>
-            {user.username}
+            <div className="user-list-item-pfp"></div>
+            <div className="user-list-item-username">{user.username}</div>
         </div>
     ))
 
-    console.log(messages);
-
     const messagesList = Object.values(stateMessages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
-            {<div className="message-author-div">
-                {message.authorName || message.author_name}
-            </div>}
-            <div className="message-content-div">
-                {message.content}
+            <div className="message-pfp-div"></div>
+            <div className="message-div">
+                {<div className="message-author-div">
+                    {message.authorName || message.author_name}
+                </div>}
+                <div className="message-content-div">
+                    {message.content}
+                </div>
             </div>
         </div>
     )) 
@@ -112,7 +114,8 @@ const ChannelTextPage = () => {
                         </input>
                     </form>
                 </div>
-                <div className="channel-users-container">
+                <div className="channels-users-container">
+                    <div className="channels-users-members">MEMBERS</div>
                     {usersList}
                 </div>
             </div>

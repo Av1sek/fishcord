@@ -54,13 +54,57 @@
     flex-direction: column;
 }
 
-.channel-users-container {
+.channels-users-container {
     background-color: #2F3136;
     width: 240px;
     height: 100%;
     margin-left: 5px;
     padding-left: 5px;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.channels-users-members {
+    color: #96989D;
+    font-weight: 500;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.user-list-item-container {
+    height: 42px;
+    width: 200px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #96989D;
+}
+
+.user-list-item-pfp {
+    background-image: url(../../assets/serversPage/pfp.png);
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+}
+
+.user-list-item-username {
+    margin-left: 5px;
+    width: 150px;
+    font-size: 15px;
+}
+
+.user-list-item-container:hover {
+    background-color: #42464E;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
 }
 
 .channel-text-messages-container {
@@ -76,9 +120,21 @@
 
 .message-container {
     width: 100%;
+    max-width: 70vw;
     min-height: 60px;
+    margin-left: 20px;
     height: auto;
     margin-bottom: 10px;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.message-pfp-div {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
 }
 
 .message-author-div {
