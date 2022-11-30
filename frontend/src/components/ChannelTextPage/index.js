@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchChannels } from "../../store/channels";
-import { createMessage, fetchMessages } from "../../store/messages";
+import { createMessage, deleteMessage, fetchMessages } from "../../store/messages";
 import { fetchUser, fetchUsers } from "../../store/users";
 import { createConsumer } from "@rails/actioncable";
 import './ChannelTextPage.css'
@@ -75,6 +75,10 @@ const ChannelTextPage = () => {
         let strDate = new Date(date);
         return(strDate.toLocaleDateString() + " " + strDate.toLocaleTimeString())
     }
+
+    const handleDelete = (messageId) => {
+        dispatch(deleteMessage(messageId));
+    }
  
     const messagesList = Object.values(stateMessages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
@@ -86,6 +90,10 @@ const ChannelTextPage = () => {
                     </div>}
                     {<div className="message-date-div">
                         {convertDate(message.createdAt) || convertDate(message.created_at)}
+                    </div>}
+                    {(message.authorId === sessionUser.id || message.author_id === sessionUser.id) && <div className="message-delete-container">
+                        <div className="message-edit-btn"></div>
+                        <div className="message-delete-btn" onClick={() => {handleDelete(message.id)}}></div>
                     </div>}
                 </div>
                 <div className="message-content-div">

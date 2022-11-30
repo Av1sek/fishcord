@@ -21,6 +21,11 @@ class Api::MessagesController < ApplicationController
         @messages = Message.where(chatroom_id: params[:chatroom_id])
     end
 
+    def destroy
+        @message = Message.find_by(id: params[:id])
+        @message.destroy
+    end
+
     private
 
     def message_params 

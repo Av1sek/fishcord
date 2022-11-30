@@ -44,7 +44,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    min-height: 0px;
 }
 
 .channel-text-container {
@@ -52,6 +52,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .channels-users-container {
@@ -108,14 +109,14 @@
 }
 
 .channel-text-messages-container {
-    min-height: 0px;
     width: 100%;
     height: 100%;
     display: block;
     flex-direction: column;
     justify-content: flex-end;
     flex: 1;
-    overflow-y: scroll !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .message-container {
@@ -124,6 +125,7 @@
     min-height: 60px;
     margin-left: 20px;
     height: auto;
+    margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
@@ -153,6 +155,7 @@
     font-size: 12px;
     font-weight: 400;
     margin-top: 5px;
+    width: 200px;
 }
 
 .message-div {
@@ -163,6 +166,11 @@
     height: auto;
     min-height: 60px;
     margin-top: 1px;
+}
+
+.message-container:hover {
+    background-color: #323438;
+    border-radius: 10px;
 }
 
 .message-info-container {
@@ -176,6 +184,42 @@
     margin-top: 5px;
 }
 
+.message-delete-btn {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-image: url(../../assets/serversPage/channels/SeekPng.com_open-trash-can-png_1281191.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: -2px;
+}
+
+.message-edit-btn {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-image: url(../../assets/serversPage/channels/edit-icon-png-3587.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: -2px;
+    margin-right: 10px;
+}
+
+.message-edit-btn:hover {
+    cursor: pointer;
+}
+
+.message-delete-btn:hover {
+    cursor: pointer;
+}
+
+.message-delete-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 20px;
+}
 
 .channel-text-messages-container::-webkit-scrollbar {
     width: 10px;
