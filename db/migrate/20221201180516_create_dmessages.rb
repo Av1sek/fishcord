@@ -1,0 +1,11 @@
+class CreateDmessages < ActiveRecord::Migration[7.0]
+  def change
+    create_table :dmessages do |t|
+      t.references :author, foreign_key: {to_table: :users}
+      t.references :chatroom, foreign_key: {to_table: :dchannels}
+      t.text :content, null: false
+      t.string :author_name, null: false
+      t.timestamps
+    end
+  end
+end

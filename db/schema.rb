@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_210432) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_180609) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_210432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["server_id"], name: "index_channels_on_server_id"
+  end
+
+  create_table "dchannels", force: :cascade do |t|
+    t.bigint "user_1_id"
+    t.bigint "user_2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_1_id"], name: "index_dchannels_on_user_1_id"
+    t.index ["user_2_id"], name: "index_dchannels_on_user_2_id"
+  end
+
+  create_table "dmessages", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "chatroom_id"
+    t.text "content", null: false
+    t.string "author_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_dmessages_on_author_id"
+    t.index ["chatroom_id"], name: "index_dmessages_on_chatroom_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -62,6 +82,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_210432) do
   end
 
   add_foreign_key "channels", "servers"
+  add_foreign_key "dchannels", "users", column: "user_1_id"
+  add_foreign_key "dchannels", "users", column: "user_2_id"
+  add_foreign_key "dmessages", "dchannels", column: "chatroom_id"
+  add_foreign_key "dmessages", "users", column: "author_id"
   add_foreign_key "messages", "channels", column: "chatroom_id"
   add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "server_members", "servers"
