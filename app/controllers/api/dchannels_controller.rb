@@ -1,5 +1,5 @@
 class Api::DchannelsController < ApplicationController
-    wrap_parameters include: Dchannel.attribute_names + ['user1Id'] + ['user2Id'] 
+    wrap_parameters include: Dchannel.attribute_names + ['user1Id'] + ['user2Id'] + ['userId']
 
     def create
         @dchannel = Dchannel.new(dchannel_params)
@@ -17,8 +17,8 @@ class Api::DchannelsController < ApplicationController
 
     def show
         @dchannel = Dchannel.find_by(id: params[:id])
-        @messages = @channel.messages
-        render '/api/channels/show'
+        @dmessages = @dchannel.dmessages
+        render '/api/dchannels/show'
     end
 
     private
