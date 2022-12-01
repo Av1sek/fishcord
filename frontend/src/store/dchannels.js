@@ -18,14 +18,14 @@ const getDchannel = dchannel => {
     }
 }
 
-export const fetchChannels = (id) => async (dispatch) => {
+export const fetchDchannels = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/dchannels?userId=${id}`);
     const data = await response.json();
     dispatch(getDchannels(data));
     return response;
 }
 
-export const fetchChannel = (id) => async (dispatch) => {
+export const fetchDchannel = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/channels/${id}`);
     const data = await response.json();
     dispatch(getDchannel(data));
@@ -33,7 +33,7 @@ export const fetchChannel = (id) => async (dispatch) => {
 }
 
 export const createDchannel = (dchannel) => async (dispatch) => {
-    const {user_1_id, user_2_id} = dchannel
+    const {user_1_id, user_2_id, user1_name, user2_name} = dchannel
     const response = await csrfFetch(`/api/dchannels`, {
         method: 'POST',
         body: JSON.stringify({

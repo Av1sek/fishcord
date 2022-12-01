@@ -83,6 +83,20 @@ ApplicationRecord.transaction do
         member_id: 2,
         server_id: 2
     )
+
+    Dchannel.create!(
+        user_1_id: 1,
+        user_2_id: 2,
+        user1_name: "DemoUser",
+        user2_name: "DemoFriend"
+    )
+
+    Dchannel.create(
+        user_1_id: 3,
+        user_2_id: 1,
+        user1_name: "FriendlyDemo",
+        user2_name: "DemoUser"
+    )
     
     puts 'Done seeding db'
     

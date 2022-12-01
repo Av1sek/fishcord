@@ -59,7 +59,7 @@ export const createDmessage = (dmessage) => async (dispatch) => {
 
 export const updateDmessage = (newDmessage) => async (dispatch) => {
     const {id, content, author_id, chatroom_id, author_name} = newDmessage
-    const response = await csrfFetch(`/api/messages/${newDmessage.id}`, {
+    const response = await csrfFetch(`/api/dmessages/${newDmessage.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
             dmessage: newDmessage
@@ -75,7 +75,7 @@ export const updateDmessage = (newDmessage) => async (dispatch) => {
 
 
 export const deleteDmessage = (dmessageId) => async (dispatch) => {
-    await csrfFetch(`/api/messages/${dmessageId}`, {method: 'DELETE'});
+    await csrfFetch(`/api/dmessages/${dmessageId}`, {method: 'DELETE'});
     dispatch(removeDmessage(dmessageId));
 }
 

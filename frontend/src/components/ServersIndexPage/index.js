@@ -77,7 +77,7 @@ function ServerIndex() {
     return(
         <div className="server-index-container">
             <div className="server">
-                <h3 className="direct-messages"></h3>
+                <h3 className="direct-messages" onClick={() => {history.push(`/channels/@me`)}}></h3>
             </div>
             <div className="dm-border"></div>
             {serversList}

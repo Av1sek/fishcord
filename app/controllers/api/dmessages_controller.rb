@@ -1,10 +1,10 @@
-class Api::MessagesController < ApplicationController
+class Api::DmessagesController < ApplicationController
     wrap_parameters include: Dmessage.attribute_names + ['authorId'] + ['chatroomId'] + ['authorName']
 
     def create
         @dmessage = Dmessage.new(dmessage_params)
         if @dmessage.save!
-            @conversation = Dchannel.find(@message[:chatroom_id])
+            @conversation = Dchannel.find(@dmessage[:chatroom_id])
             DconversationChannel.broadcast_to(@conversation, @dmessage)
             render '/api/dmessages/show'
         else
@@ -28,7 +28,7 @@ class Api::MessagesController < ApplicationController
 
     def update
         @dmessage = Dmessage.find(params[:id])
-        @dmessage.update(message_params)
+        @dmessage.update(dmessage_params)
         render '/api/dmessages/show'
     end
 

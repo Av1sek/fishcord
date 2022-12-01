@@ -6,6 +6,8 @@ import SplashPage from './components/SplashPage';
 import ServerPage from './components/Server';
 import ServerEditPage from './components/ServerEditPage';
 import ChannelEditPage from './components/ChannelEditPage'
+import DirectMessagePage from './components/DirectMessagePage';
+import DMPage from './components/DMPage';
 
 function App() {
   return (
@@ -15,6 +17,12 @@ function App() {
       </Route>
       <Route path="/channels/:id/edit">
         <ChannelEditPage />
+      </Route>
+      <Route path="/channels/@me/:dchannelId">
+        <DMPage />
+      </Route>
+      <Route path="/channels/@me">
+        <DirectMessagePage />
       </Route>
       <Route path="/servers/:id/:channelId">
         <ServerPage />

@@ -1,5 +1,5 @@
 class Api::DchannelsController < ApplicationController
-    wrap_parameters include: Dchannel.attribute_names + ['user1Id'] + ['user2Id'] + ['userId']
+    wrap_parameters include: Dchannel.attribute_names + ['user1Id'] + ['user2Id'] + ['userId'] + ['user1Name'] + ['user2Name']
 
     def create
         @dchannel = Dchannel.new(dchannel_params)
@@ -24,7 +24,7 @@ class Api::DchannelsController < ApplicationController
     private
 
     def dchannel_params
-        params.require(:dchannel).permit(:user_1_id, :user_2_id)
+        params.require(:dchannel).permit(:user_1_id, :user_2_id, :user1_name, :user2_name)
     end
 
 end
