@@ -26,6 +26,12 @@ class Api::MessagesController < ApplicationController
         @message.destroy
     end
 
+    def update
+        @message = Message.find(params[:id])
+        @message.update(message_params)
+        render '/api/messages/show'
+    end
+
     private
 
     def message_params 

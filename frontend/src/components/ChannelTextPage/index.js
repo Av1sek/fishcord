@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchChannels } from "../../store/channels";
-import { createMessage, deleteMessage, fetchMessages } from "../../store/messages";
-import { fetchUser, fetchUsers } from "../../store/users";
+import { createMessage, deleteMessage, fetchMessages, updateMessage } from "../../store/messages";
+import { fetchUsers } from "../../store/users";
 import { createConsumer } from "@rails/actioncable";
 import './ChannelTextPage.css'
 
@@ -18,6 +18,9 @@ const ChannelTextPage = () => {
     const servers = useSelector(state => state.servers)
     const stateMessages = useSelector(state => state.messages)
     const users = useSelector(state => state.users)
+    const [editing, setEditing] = useState(false);
+    const [editText,setEditText] = useState('');
+    const [editId, setEditId] = useState();
     
     const [messages, setMessages] = useState([]);
     const [content, setContent] = useState("");
@@ -79,6 +82,19 @@ const ChannelTextPage = () => {
     const handleDelete = (messageId) => {
         dispatch(deleteMessage(messageId));
     }
+
+    const cancelEditDiv = () => {
+        setEditText('');
+        setEditing(false);
+        setEditId('');
+    }
+
+    const handleUpdateMessage = (e) => {
+        e.preventDefault();
+        dispatch(updateMessage({id: editId, content: editText, author_id: sessionUser.id, chatroom_id: channelId, author_name: sessionUser.username})).then(() => {
+            cancelEditDiv()
+        })
+    }
  
     const messagesList = Object.values(stateMessages).map((message) => (
         <div className="message-container" key={`${message.id}`}>
@@ -91,14 +107,34 @@ const ChannelTextPage = () => {
                     {<div className="message-date-div">
                         {convertDate(message.createdAt) || convertDate(message.created_at)}
                     </div>}
-                    {(message.authorId === sessionUser.id || message.author_id === sessionUser.id) && <div className="message-delete-container">
-                        <div className="message-edit-btn"></div>
-                        <div className="message-delete-btn" onClick={() => {handleDelete(message.id)}}></div>
+                    {(message.authorId === sessionUser.id || message.author_id === sessionUser.id) && <div className="message-edit-container">
+                        <div className="message-edit-box">
+                            <div className="message-edit-btn" onClick={() => {setEditing(true); setEditId(message.id); setEditText(message.content)}}>
+                                <svg aria-hidden='true' role='img' className="svg-22-edit" width="16" height="16" viewBox="0 0 24 24">
+                                    <path fill="#8e9297" d="M19.2929 9.8299L19.9409 9.18278C21.353 7.77064 21.353 5.47197 19.9409 4.05892C18.5287 2.64678 16.2292 2.64678 14.817 4.05892L14.1699 4.70694L19.2929 9.8299ZM12.8962 5.97688L5.18469 13.6906L10.3085 18.813L18.0201 11.0992L12.8962 5.97688ZM4.11851 20.9704L8.75906 19.8112L4.18692 15.239L3.02678 19.8796C2.95028 20.1856 3.04028 20.5105 3.26349 20.7337C3.48669 20.9569 3.8116 21.046 4.11851 20.9704Z"></path>
+                                </svg>
+                            </div>
+                            <div className="message-delete-btn" onClick={() => {handleDelete(message.id)}}>
+                                <svg aria-hidden='true' role='img' className="svg-22-delete" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#8e9297" d="M15 3.999V2H9V3.999H3V5.999H21V3.999H15Z"></path>
+                                    <path fill="#8e9297" d="M5 6.99902V18.999C5 20.101 5.897 20.999 7 20.999H17C18.103 20.999 19 20.101 19 18.999V6.99902H5ZM11 17H9V11H11V17ZM15 17H13V11H15V17Z"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>}
                 </div>
-                <div className="message-content-div">
-                    {message.content}
-                </div>
+                {editing && editId === message.id ? 
+                    <form className="message-content-edit-div" onSubmit={handleUpdateMessage}>
+                        <input type="text" className="channel-messages-edit-text" value={editText} onChange={(e) => setEditText(e.target.value)}>
+                        </input>
+                        <div className="message-edit-text">
+                            click to<div className="cancel-edit-div" onClick={() => {cancelEditDiv()}}>&nbsp;cancel&nbsp;</div>enter to<input type="submit" className="message-edit-confirm" value="submit"></input>
+                        </div>
+                    </form>:
+                    <div className="message-content-div">
+                        {message.content}
+                    </div>
+                    }
             </div>
         </div>
     )) 

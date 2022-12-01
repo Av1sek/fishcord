@@ -169,7 +169,7 @@
 }
 
 .message-container:hover {
-    background-color: #323438;
+    background-color: #34363C;
     border-radius: 10px;
 }
 
@@ -184,42 +184,76 @@
     margin-top: 5px;
 }
 
-.message-delete-btn {
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    background-image: url(../../assets/serversPage/channels/SeekPng.com_open-trash-can-png_1281191.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-top: -2px;
+.message-content-edit-div {
+    color: #D8D9DA;
+    overflow-wrap: break-word;
+    margin-top: 5px;
 }
 
-.message-edit-btn {
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    background-image: url(../../assets/serversPage/channels/edit-icon-png-3587.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-top: -2px;
-    margin-right: 10px;
-}
 
-.message-edit-btn:hover {
-    cursor: pointer;
-}
-
-.message-delete-btn:hover {
-    cursor: pointer;
-}
-
-.message-delete-container {
+.message-edit-container {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     height: 20px;
 }
+
+.message-edit-container .message-edit-box {
+    visibility: hidden;
+    background-color: #33353B;
+    border: 1px solid #2C3035;
+    border-radius: 5px;
+    width: 80px;
+    height: 32px;
+    margin-top: -15px;
+    margin-right: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.message-container:hover .message-edit-box{
+    visibility: visible;
+    box-shadow: 0px 0px 5px 0.5px rgb(36, 35, 35);
+}
+
+.message-edit-btn {
+    width: 32px;
+    height: 32px;
+}
+
+.message-edit-btn:hover {
+    cursor: pointer;
+    background-color: #444951;
+}
+
+.svg-22-edit {
+    width: 22px;
+    height: 22px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+.message-delete-btn {
+    width: 32px;
+    height: 32px;
+}
+
+.message-delete-btn:hover {
+    cursor: pointer;
+    background-color: #444951;
+}
+
+.svg-22-delete {
+    width: 22px;
+    height: 22px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 
 .channel-text-messages-container::-webkit-scrollbar {
     width: 10px;
@@ -252,4 +286,48 @@
     margin-top: 5px;
     margin-bottom: 10px;
     height: 45px;
+}
+
+.channel-messages-edit-text {
+    border-radius: 10px;
+    background-color: #40444C;
+    border: none;   
+    outline: none;
+    color: #D1D2D4;
+    width: 85%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 45px;
+}
+
+.message-edit-text {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+}
+
+.message-edit-confirm {
+    font-size: 12px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #13A8EA;
+    margin-top: -1px;
+}
+
+.message-edit-confirm:hover {
+    cursor: pointer;
+}
+
+.cancel-edit-div {
+    font-size: 12px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #13A8EA;
+}
+
+.cancel-edit-div:hover {
+    cursor: pointer;
 }
