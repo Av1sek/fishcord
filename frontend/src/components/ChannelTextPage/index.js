@@ -57,20 +57,31 @@ const ChannelTextPage = () => {
     }, [channelId, messages])
 
     useEffect(() => {
-        dispatch(fetchChannels(id)).then(() => setLoaded(true));
+        dispatch(fetchChannels(id)).then(() => {
+            setLoaded(true);
+            let scrollDiv = document.getElementsByClassName("channel-text-messages-container")[0];
+            scrollDiv.scrollTop = scrollDiv.scrollHeight;
+        });
     }, [channelId])
 
     useEffect(() => {
         dispatch(fetchMessages(channelId)).then(() => {
             setMessagesLoaded(true);
+            let scrollDiv = document.getElementsByClassName("channel-text-messages-container")[0];
+            scrollDiv.scrollTop = scrollDiv.scrollHeight;
         });
         dispatch(fetchUsers(id)).then(() => setUsersLoaded(true));
     }, [channelId, messages, id])
+
+    const createDM = () => {
+
+    }
 
     const usersList = Object.values(users).map((user) => (
         <div className="user-list-item-container" key={user.id}>
             <div className="user-list-item-pfp"></div>
             <div className="user-list-item-username">{user.username}</div>
+            {user.id !== sessionUser.id && <div className="user-list-item-dm">DM</div>}
         </div>
     ))
 

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { createMessage, deleteMessage, fetchMessages, updateMessage } from "../../store/messages";
 import { createDmessage, deleteDmessage, fetchDmessages, updateDmessage } from "../../store/dmessages";
-import { fetchUsers } from "../../store/users";
 import { createConsumer } from "@rails/actioncable";
 import './DChannelTextPage.css'
-import { fetchDchannel, fetchDchannels } from "../../store/dchannels";
 
 const DChannelTextPage = () => {
     const dispatch = useDispatch();
@@ -52,10 +49,6 @@ const DChannelTextPage = () => {
         }
 
     }, [dchannelId, messages])
-
-    // useEffect(() => {
-    //     dispatch(fetchDchannels(id)).then(() => setLoaded(true));
-    // }, [dchannelId])
 
     useEffect(() => {
         dispatch(fetchDmessages(dchannelId)).then(() => {

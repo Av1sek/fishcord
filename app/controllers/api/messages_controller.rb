@@ -29,6 +29,8 @@ class Api::MessagesController < ApplicationController
     def update
         @message = Message.find(params[:id])
         @message.update(message_params)
+        @conversation = Channel.find(@message[:chatroom_id])
+        ConversationChannel.broadcast_to(@conversation, @message)
         render '/api/messages/show'
     end
 

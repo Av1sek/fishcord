@@ -26,6 +26,7 @@ function SplashPage() {
                     <div className="secondary-nav">
                         <Link to={{ pathname: "https://github.com/Av1sek/fishcord" }} target="_blank" className="other-website">Github</Link>
                         <Link to={{ pathname: "https://www.linkedin.com/in/avisek-pandit-374096247/" }} target="_blank" className="other-website">LinkedIn</Link>
+                        <Link to={{ pathname: "https://avisekpandit.com" }} target="_blank" className="other-website">Personal Site</Link>
                         <Link to={{ pathname: "https://angel.co/u/avisek-pandit" }} target="_blank" className="other-website">AngelList</Link>
                     </div>
                     <div className="nav-login">
@@ -37,7 +38,7 @@ function SplashPage() {
                     <p>...where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.</p>
                 </div>
                 <div className="nav-open-fishcord">
-                        {sessionUser ? <NavLink className="nav-open-fishcord-text" to="/servers/1/1">Open Fishcord</NavLink> : <NavLink className="nav-open-fishcord-text" to="/login">Open Fishcord</NavLink> }
+                        {sessionUser ? <NavLink className="nav-open-fishcord-text" to="/channels/@me">Open Fishcord</NavLink> : <NavLink className="nav-open-fishcord-text" to="/login">Open Fishcord</NavLink> }
                 </div>
             </div>
             <div className='splash-blue-line'></div>

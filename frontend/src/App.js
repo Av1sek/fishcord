@@ -4,6 +4,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
 import SplashPage from './components/SplashPage';
 import ServerPage from './components/Server';
+import ServerOnlyPage from './components/ServerOnly';
 import ServerEditPage from './components/ServerEditPage';
 import ChannelEditPage from './components/ChannelEditPage'
 import DirectMessagePage from './components/DirectMessagePage';
@@ -26,6 +27,9 @@ function App() {
       </Route>
       <Route path="/servers/:id/:channelId">
         <ServerPage />
+      </Route>
+      <Route path="/servers/:id">
+        <ServerOnlyPage />
       </Route>
       <Route path="/login">
         <LoginFormPage />
