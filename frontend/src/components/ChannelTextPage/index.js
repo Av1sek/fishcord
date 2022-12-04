@@ -28,7 +28,7 @@ const ChannelTextPage = () => {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        let cable = createConsumer();
+        let cable = createConsumer(); //"ws://localhost:5000/cable"
 
         const paramsToSend = {
             channel: "ConversationChannel",
