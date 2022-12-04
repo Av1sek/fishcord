@@ -28,7 +28,7 @@ const removeServerMember = serverMemberId => {
 }
 
 export const fetchServerMembers = (id) => async (dispatch) => {
-    const response = await csrfFetch(`api/server_members?userId=${id}`);
+    const response = await csrfFetch(`/api/server_members?userId=${id}`);
     const data = await response.json();
     dispatch(getServerMembers(data))
     return response;

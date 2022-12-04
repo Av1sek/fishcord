@@ -2,15 +2,18 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchServers, createServer} from '../../store/servers';
 import { Redirect, useHistory } from 'react-router-dom';
+import { createServerMember } from '../../store/servermembers';
 import Modal from '../../Modal/Modal';
 
 import './Servers.css'
+import { fetchServerMembers } from '../../store/servermembers';
 
 function ServerIndex() {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
     const servers = useSelector(state => state.servers)
+    const serversUnjoined = useSelector(state => state.serverMembers);
     const serversList = Object.values(servers).map(
         server => 
         <div className="server" key={server.id + "/serverId"}>
@@ -30,6 +33,7 @@ function ServerIndex() {
 
     useEffect(() => {
         dispatch(fetchServers(sessionUser.id))
+        dispatch(fetchServerMembers(sessionUser.id))
     }, [sessionUser.id, dispatch])
     
     useEffect(() => {
@@ -71,8 +75,19 @@ function ServerIndex() {
             // if (data?.errors) setErrors(data.errors);
             // else if (data) setErrors([data]);
             // else setErrors([res.statusText]);
-          });
-      }
+          }
+        );
+    }
+
+    const unjoinedServersList = Object.values(serversUnjoined).map((server) => (
+        <div className="server-unjoined-list-item" key={"unjoined-server-" + server.id} onClick={() => {
+            dispatch(createServerMember({member_id: sessionUser.id, server_id: server.id}));
+            handleModalClose();
+            setServerCount(serverCount + 1);
+        }}>
+            {server.name}
+        </div>
+    ))
 
     return(
         <div className="server-index-container">
@@ -84,6 +99,21 @@ function ServerIndex() {
             <div className="server">
                 <h3 className="add-server" onClick={() => {setModalOpen(true)}}>+</h3>
                 <Modal modalOpen={modalOpen} modalClose={handleModalClose}>
+                    {page === "JoinServer" ? 
+                    <div className="create-server-first-page">
+                        <button className="create-server-modal-x" onClick={handleModalClose}>X</button>
+                        <div className="create-server-text">Join a server</div>
+                        <div className="create-server-secondary-text">Join a public server listed below. There, you can meet a new community and make new friends!</div>
+                        <div className="unjoinedservers-list-container">
+                            {unjoinedServersList}
+                        </div>
+                        <div className="server-back">
+                            <button className="server-back-button" onClick={() => {
+                                setPage(1)
+                            }}>Back</button>
+                        </div>
+                    </div> 
+                    : null}
                     {page === 1 ? 
                         <div className="create-server-first-page">
                             <button className="create-server-modal-x" onClick={handleModalClose}>X</button>
@@ -130,7 +160,7 @@ function ServerIndex() {
 
                             <div className="join-server-form">
                                 <div className="join-server-text">Have an invite already?</div>
-                                <button className="join-server-button">Join a Server</button>
+                                <button className="join-server-button" onClick={() => {setPage("JoinServer")}}>Join a Server</button>
                             </div>
                         </div>
                     : null }

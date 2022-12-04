@@ -4,7 +4,7 @@ class Api::ServerMembersController < ApplicationController
     def create
         @servermember = ServerMember.new(servermember_params)
         if @servermember.save!
-            @server = Server.find(@server_member.server_id)
+            @server = Server.find(@servermember.server_id)
             render '/api/servers/show'
         else 
             render json: {errors: @servermember.errors.full_messages}
