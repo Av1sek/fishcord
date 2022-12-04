@@ -11,9 +11,13 @@ ApplicationRecord.transaction do
 
     puts 'Destroying User Table'
     User.destroy_all
+    Server.destroy_all
+    Channel.destroy_all
+
     #first user will have an id of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('servers')
+    ApplicationRecord.connection.reset_pk_sequence!('channels')
     puts 'Creating new users'
 
     User.create!(
@@ -82,20 +86,6 @@ ApplicationRecord.transaction do
     ServerMember.create!(
         member_id: 2,
         server_id: 2
-    )
-
-    Dchannel.create!(
-        user_1_id: 1,
-        user_2_id: 2,
-        user1_name: "DemoUser",
-        user2_name: "DemoFriend"
-    )
-
-    Dchannel.create(
-        user_1_id: 3,
-        user_2_id: 1,
-        user1_name: "FriendlyDemo",
-        user2_name: "DemoUser"
     )
     
     puts 'Done seeding db'
