@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.61293628.css",
-    "main.js": "/static/js/main.965fc848.js",
+    "main.css": "/static/css/main.36f250d3.css",
+    "main.js": "/static/js/main.245b8eea.js",
     "static/media/discordSplashImg.png": "/static/media/discordSplashImg.e262bdad525e84122fad.png",
     "static/media/loginBackground.png": "/static/media/loginBackground.bcd183ee1145f791ba87.png",
+    "static/media/splash-invite.png": "/static/media/splash-invite.f6a174cc4be5742c2faf.png",
+    "static/media/discord_study_logo.svg": "/static/media/discord_study_logo.9ab631e1d1a164dc7ef0.svg",
+    "static/media/pfp.png": "/static/media/pfp.9266849895a3856007dc.png",
+    "static/media/create_server.svg": "/static/media/create_server.c4b7801fb3f0df337861.svg",
+    "static/media/discord_school_logo.svg": "/static/media/discord_school_logo.1351814d99a389aad23c.svg",
+    "static/media/gaming_discord_logo.svg": "/static/media/gaming_discord_logo.4e83e03c728ff6263b47.svg",
+    "static/media/for_club.svg": "/static/media/for_club.2ad98741f87bb58786cf.svg",
+    "static/media/for_friends.svg": "/static/media/for_friends.2072f15a7a61e7d69c05.svg",
     "index.html": "/index.html",
-    "main.61293628.css.map": "/static/css/main.61293628.css.map",
-    "main.965fc848.js.map": "/static/js/main.965fc848.js.map"
+    "main.36f250d3.css.map": "/static/css/main.36f250d3.css.map",
+    "main.245b8eea.js.map": "/static/js/main.245b8eea.js.map"
   },
   "entrypoints": [
-    "static/css/main.61293628.css",
-    "static/js/main.965fc848.js"
+    "static/css/main.36f250d3.css",
+    "static/js/main.245b8eea.js"
   ]
 }
