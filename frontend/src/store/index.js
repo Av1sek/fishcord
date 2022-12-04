@@ -7,8 +7,9 @@ import messages from './messages';
 import users from './users';
 import dchannels from './dchannels';
 import dmessages from './dmessages';
+import serverMembers from './servermembers';
 
-const rootReducer = combineReducers({session, servers, channels, messages, users, dchannels, dmessages}) 
+const rootReducer = combineReducers({session, servers, channels, messages, users, dchannels, dmessages, serverMembers}) 
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {

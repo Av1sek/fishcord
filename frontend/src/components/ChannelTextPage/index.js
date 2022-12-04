@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { fetchChannels } from "../../store/channels";
 import { createMessage, deleteMessage, fetchMessages, updateMessage } from "../../store/messages";
 import { fetchUsers } from "../../store/users";
+import { createDchannel, fetchDchannels } from "../../store/dchannels";
 import { createConsumer } from "@rails/actioncable";
 import './ChannelTextPage.css'
 
 const ChannelTextPage = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id, channelId } = useParams();
     const sessionUser = useSelector(state => state.session.user)
     const [loaded, setLoaded] = useState(false);
     const [messagesLoaded, setMessagesLoaded] = useState(false);
     const [usersLoaded, setUsersLoaded] = useState(false);
     const channels = useSelector(state => state.channels)
-    const servers = useSelector(state => state.servers)
+    const dchannels = useSelector(state => state.dchannels)
     const stateMessages = useSelector(state => state.messages)
     const users = useSelector(state => state.users)
     const [editing, setEditing] = useState(false);
@@ -62,6 +64,7 @@ const ChannelTextPage = () => {
             let scrollDiv = document.getElementsByClassName("channel-text-messages-container")[0];
             scrollDiv.scrollTop = scrollDiv.scrollHeight;
         });
+        dispatch(fetchDchannels(sessionUser.id));
     }, [channelId])
 
     useEffect(() => {
@@ -73,15 +76,23 @@ const ChannelTextPage = () => {
         dispatch(fetchUsers(id)).then(() => setUsersLoaded(true));
     }, [channelId, messages, id])
 
-    const createDM = () => {
-
-    }
-
     const usersList = Object.values(users).map((user) => (
         <div className="user-list-item-container" key={user.id}>
             <div className="user-list-item-pfp"></div>
             <div className="user-list-item-username">{user.username}</div>
-            {user.id !== sessionUser.id && <div className="user-list-item-dm">DM</div>}
+            {user.id !== sessionUser.id && <div className="user-list-item-dm" onClick={() => {
+                let hasDM = false;
+                Object.values(dchannels).forEach((dchannel) => {
+                    if ((dchannel.user1Id === sessionUser.id && dchannel.user2Id === user.id) || (dchannel.user2Id === sessionUser.id && dchannel.user1Id === user.id)) {
+                        hasDM = true;
+                        history.push(`/channels/@me/${dchannel.id}`)
+                    }
+                })
+                if (!hasDM) {
+                    dispatch(createDchannel({user_1_id: sessionUser.id, user_2_id: user.id, user1_name: sessionUser.username, user2_name: user.username}));
+                    history.push(`/channels/@me`)
+                }
+            }}>DM</div>}
         </div>
     ))
 

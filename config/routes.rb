@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :channels, only: [:create, :destroy, :show, :index, :update]
     resources :messages, only: [:create, :destroy, :show, :update, :index]
     resources :dmessages, only: [:create, :destroy, :show, :update, :index]
+    resources :server_members, only: [:create, :destroy, :show, :index]
     resource :session, only: [:show, :create, :destroy]
   end
 

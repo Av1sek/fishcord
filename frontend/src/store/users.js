@@ -22,7 +22,6 @@ export const fetchUsers = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/users?serverId=${id}`);
     const data = await response.json();
     dispatch(getUsers(data));
-    console.log(data);
     return response;
 }
 
