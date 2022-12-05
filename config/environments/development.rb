@@ -18,7 +18,7 @@ Rails.application.configure do
   config.server_timing = true
 
   config.action_cable.url = "wss://fishcord.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ "https://fishcord.herokuapp.com", /http:\/\/fishcord.herokuapp.*/ ]
+  config.action_cable.allowed_request_origins = [ "https://fishcord.herokuapp.com", "https://fishcord.herokuapp.com" ]
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -64,5 +64,5 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Uncomment if you wish to allow Action Cable access from any origin.
-  # config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.disable_request_forgery_protection = true
 end
