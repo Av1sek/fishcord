@@ -28,7 +28,7 @@ const ChannelTextPage = () => {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        let cable = createConsumer("ws://fishcord.herokuapp.com/cable"); //"ws://localhost:5000/cable"
+        let cable = createConsumer("wss://fishcord.herokuapp.com/cable"); //"ws://localhost:5000/cable"
 
         const paramsToSend = {
             channel: "ConversationChannel",
