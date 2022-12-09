@@ -20,7 +20,7 @@ const DChannelTextPage = () => {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        let cable = createConsumer("ws://localhost:5000/cable");
+        let cable = createConsumer("wss://fishcord.herokuapp.com/cable");
 
         const paramsToSend = {
             channel: "DconversationChannel",
