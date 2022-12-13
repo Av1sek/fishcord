@@ -48,7 +48,7 @@ function ServerEditPage() {
 
     const handleDelete = () => {
         dispatch(deleteServer(id))
-        history.push(`/servers/1/1`)
+        history.push(`/channels/@me`)
     }
 
     const handleSubmit = (e) => {
@@ -84,7 +84,7 @@ function ServerEditPage() {
                     <div className="server-overview-edit-text">
                         Server Overview
                     </div>
-                    <div className="server-overview-exit-container" onClick={() => {history.push(`/servers/${id}/1`)}}>
+                    <div className="server-overview-exit-container" onClick={() => {history.push(`/servers/${id}`)}}>
                         X
                         <div className="server-overview-exit-text">
                             ESC
